@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class codinggym : MonoBehaviour
 {
+
+    //EXERCISE 2
+    //MOVING UP DOWN LEFT RIGHT WITH ARROW KEYSs
     public float moveSpeed = 5f;
     //private 
     
