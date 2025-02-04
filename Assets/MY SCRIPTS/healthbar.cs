@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,9 @@ public class healthbar : MonoBehaviour
     public Slider Slider;
     void Start()
     {
-        
+        Slider.minValue = 0;
+        Slider.maxValue = 100;
+        Slider.value = health;
     }
 
   
@@ -23,5 +26,6 @@ public class healthbar : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        Slider.value= health;
     }
 }
