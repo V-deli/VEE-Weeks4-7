@@ -26,11 +26,11 @@ public class movementscript : MonoBehaviour
         }
         transform.position = pos;
     }
-    void Go(float s)
+    public void Go(float s)
     {
         speed = s;
     }
-    void Stop()
+   public void Stop()
     {
         speed = 0f;
     }
