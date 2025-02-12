@@ -23,7 +23,12 @@ public class foodspawn : MonoBehaviour
             int row = i / 5;
             int col = i % 5;
 
-            Vector2 spawnPosition = new Vector2(row, col);
+            Vector2 spawnPosition = new Vector2(
+                (col - 2) * spawnOffset.x,
+                (row - 2) * spawnOffset.y
+                );
+            GameObject food = Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], spawnPosition, Quaternion.identity );
+            Destroy( food, despawnTime);
         }
     }
 }
