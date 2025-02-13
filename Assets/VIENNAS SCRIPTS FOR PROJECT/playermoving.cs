@@ -7,14 +7,18 @@ public class playermoving : MonoBehaviour
 {
 
     public float chaspeed = 3f;
-    public Rigidbody2D body;
-    public Animator anim;
-    public Slider speedSlider;
+    private Rigidbody2D body;
+    //public Animator anim;
 
-    private Vector2 direction;
+    public Slider speedSlider;
+    public SpriteRenderer SpriteRenderer;
+    public Sprite[] spritesDirection;
+
+    private Vector2 movement;
 
     void Start()
     {
+        body = GetComponent<Rigidbody2D>();
         if (speedSlider != null)
         {
             speedSlider.value = chaspeed;
@@ -22,27 +26,47 @@ public class playermoving : MonoBehaviour
         }
     }
 
-    private float GetChaspeed()
-    {
-        return chaspeed;
-    }
+    //private float GetChaspeed()
+    //{
+    //    return chaspeed;
+    //}
 
     void Update()//float chaspeed)
     {
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
-
-        if (direction.x != 0 || direction.y != 0)
-        {
-            anim.SetFloat("Horizontal", direction.x);
-            anim.SetFloat("Vertical", direction.y);
-        }
-
-        anim.SetFloat("Speed", direction.sqrMagnitude);
-
         if (speedSlider != null)
         {
             chaspeed = speedSlider.value;
+
+        }
+
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        movement = movement * chaspeed * Time.deltaTime;
+        transform.Translate(movement);
+
+        if (movement.x > 0)
+        {
+            SpriteRenderer.sprite = spritesDirection[3];
+        }
+        else if (movement.x < 0) 
+            {
+            SpriteRenderer.sprite = spritesDirection[2];
+        }
+        else if (movement.y < 0)
+        {
+            SpriteRenderer.sprite = spritesDirection[1];
+        }
+        else if (movement.y < 0)
+        {
+            SpriteRenderer.sprite = spritesDirection[0];
+        }
+
+        //anim.SetFloat("Speed", direction.sqrMagnitude);
+
+        //if (speedSlider != null)
+        //{
+        //    chaspeed = speedSlider.value;
           //  float newSpeed = speedSlider.value;
 
           ////  if (chaspeed! = newSpeed)
@@ -53,9 +77,9 @@ public class playermoving : MonoBehaviour
     }
 
 
-void FixedUpdate()
-{
-    body.MovePosition(body.position + direction * chaspeed * Time.fixedDeltaTime);
-}
+//void FixedUpdate()
+//{
+//    body.MovePosition(body.position + direction * chaspeed * Time.fixedDeltaTime);
+//}
 
-}
+//}
