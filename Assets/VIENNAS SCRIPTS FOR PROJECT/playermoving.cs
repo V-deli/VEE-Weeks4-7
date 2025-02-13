@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class playermoving : MonoBehaviour
 {
 
-    public float chaspeed = 5f;
+    public float chaspeed = 3f;
     public Rigidbody2D body;
     public Animator anim;
     public Slider speedSlider;
@@ -22,7 +22,12 @@ public class playermoving : MonoBehaviour
         }
     }
 
-    void Update()
+    private float GetChaspeed()
+    {
+        return chaspeed;
+    }
+
+    void Update()//float chaspeed)
     {
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
@@ -38,12 +43,19 @@ public class playermoving : MonoBehaviour
         if (speedSlider != null)
         {
             chaspeed = speedSlider.value;
+          //  float newSpeed = speedSlider.value;
+
+          ////  if (chaspeed! = newSpeed)
+          //  {
+          //      chaspeed = newSpeed;
+          //  }
         }
     }
 
-    void FixedUpdate()
-    {
-        body.MovePosition(body.position + direction * chaspeed * Time.fixedDeltaTime);
-    }
+
+void FixedUpdate()
+{
+    body.MovePosition(body.position + direction * chaspeed * Time.fixedDeltaTime);
+}
 
 }
