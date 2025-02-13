@@ -32,7 +32,7 @@ public class foodspawn : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            
+
 
             Vector2 spawnPosition = new Vector2(
                 (i - 1) * spawnOffset.x, 0
@@ -43,8 +43,12 @@ public class foodspawn : MonoBehaviour
                 GameObject food = Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], spawnPosition, Quaternion.identity);
                 Destroy(food, despawnTime);
             }
+        } 
         }
-        }
+            public void PickUpFood()
+            {
+             Destroy(gameObject);
+            }
     }
 
 // changed 2 rows of 5, to 1 row of 4 since when I distort screens width the prefabs dont look nice :(
