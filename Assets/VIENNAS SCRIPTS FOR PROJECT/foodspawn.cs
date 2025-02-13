@@ -30,18 +30,21 @@ public class foodspawn : MonoBehaviour
     }
     void SpawnFood()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 4; i++)
         {
-            int row = i / 5;
-            int col = i % 5;
+            
 
             Vector2 spawnPosition = new Vector2(
-                (col - 2) * spawnOffset.x,
-                (row - 2) * spawnOffset.y
+                (i - 1) * spawnOffset.x, 0
                 );
-            GameObject food = Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], spawnPosition, Quaternion.identity);
-            Destroy(food, despawnTime);
+
+            if (foodPrefabs.Length > 0)
+            {
+                GameObject food = Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], spawnPosition, Quaternion.identity);
+                Destroy(food, despawnTime);
+            }
         }
         }
     }
 
+// changed 2 rows of 5, to 1 row of 4 since when I distort screens width the prefabs dont look nice :(
