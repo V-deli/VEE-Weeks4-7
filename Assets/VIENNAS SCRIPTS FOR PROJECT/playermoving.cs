@@ -39,41 +39,51 @@ public class playermoving : MonoBehaviour
 
         }
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        //float moveX = Input.GetAxisRaw("Horizontal");
+        //float moveY = Input.GetAxisRaw("Vertical");
 
-        movement = movement * chaspeed * Time.deltaTime;
-        transform.Translate(movement);
+        //if (moveX != 0f)
+        //{
+        //    moveY = 0f;
+        //}
 
-        if (movement.x > 0)
+        Vector2 movement = new Vector2(movement.x = 0, movement.y = 0);
+        //transform.Translate(movement);
+
+        if (Input.GetKey(KeyCode.W))
         {
-            SpriteRenderer.sprite = spritesDirection[3];
-        }
-        else if (movement.x < 0) 
-            {
-            SpriteRenderer.sprite = spritesDirection[2];
-        }
-        else if (movement.y < 0)
-        {
+            movement.y = 1;
             SpriteRenderer.sprite = spritesDirection[1];
         }
-        else if (movement.y < 0)
+        else if (Input.GetKey(KeyCode.S))
         {
+            movement.y = -1;
             SpriteRenderer.sprite = spritesDirection[0];
         }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            movement.x = -1;
+            SpriteRenderer.sprite = spritesDirection[2];
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            movement.x = 1;
+            SpriteRenderer.sprite = spritesDirection[3];
+        }
 
+        transform.Translate(movement * chaspeed * Time.deltaTime);
         //anim.SetFloat("Speed", direction.sqrMagnitude);
 
         //if (speedSlider != null)
         //{
         //    chaspeed = speedSlider.value;
-          //  float newSpeed = speedSlider.value;
+        //  float newSpeed = speedSlider.value;
 
-          ////  if (chaspeed! = newSpeed)
-          //  {
-          //      chaspeed = newSpeed;
-          //  }
-        }
+        ////  if (chaspeed! = newSpeed)
+        //  {
+        //      chaspeed = newSpeed;
+        //  }
+    }
     }
 
 
