@@ -444,12 +444,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187264526}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.4775, y: -0.2825, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1107599779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187783810
 GameObject:
@@ -1135,7 +1135,9 @@ Transform:
   m_LocalPosition: {x: -1.91, y: 1.13, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1900946477}
+  - {fileID: 187264528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1109653303
@@ -1759,7 +1761,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupDistance: 2
-  foodSprites: []
+  foodSprites:
+  - {fileID: 1502895517118268515, guid: 5d7c2e9fc10eddd419c501d145cd0685, type: 3}
+  - {fileID: 6760622110579950384, guid: f9d59ba727a02b0498c760d810bbbdd9, type: 3}
+  - {fileID: 8483104460292671843, guid: c7cde30e754d7774d80a15e5ec057343, type: 3}
+  - {fileID: 3904934440055635150, guid: aaa3ed1ecf0918e4b950583250765516, type: 3}
+  - {fileID: 7096197577290447332, guid: 1f63be966e0ca584f92d932c2e33964c, type: 3}
+  - {fileID: 1142247581796115298, guid: ef62f3bb87eed5c4a9d23947c4138d42, type: 3}
+  - {fileID: 2005663540080491740, guid: a4a74723d7ad58a42a70d30fa22d5063, type: 3}
+  - {fileID: 1481321307284300450, guid: e9d675aa488d12e489f56f2e65251266, type: 3}
+  - {fileID: 2654406353952059805, guid: 1146d33a1f569d64fb5f98cca598049e, type: 3}
+  - {fileID: 2572479787328233378, guid: 0fecfd7197dace7458245db675ae161b, type: 3}
 --- !u!4 &1900946477
 Transform:
   m_ObjectHideFlags: 0
@@ -1768,12 +1780,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900946475}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25664222, y: 0.22970481, z: -0.06449779}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.41333944, y: -0.2250738, z: -0.016124448}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1107599779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1783,5 +1795,3 @@ SceneRoots:
   - {fileID: 1107599779}
   - {fileID: 1877274832}
   - {fileID: 1810282512}
-  - {fileID: 187264528}
-  - {fileID: 1900946477}
