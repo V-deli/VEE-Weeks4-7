@@ -10,6 +10,7 @@ public class foodspawn : MonoBehaviour
     public Vector2 spawnOffset = new Vector2(3f, 3f);
 
     private float timer = 0f;
+    private GameObject[] activateFood = new GameObject[4];
 
 
     private void Start()
@@ -30,18 +31,24 @@ public class foodspawn : MonoBehaviour
     }
     void SpawnFood()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < activateFood.Length; i++)
         {
-
-
-            Vector2 spawnPosition = new Vector2(
+            if (activateFood[i] != null)
+            {
+                Destroy(activateFood[i]);
+            }
+        }
+            for (int i =0; i <4;  i++)
+        {
+                 Vector2 spawnPosition = new Vector2(
                 (i - 1) * spawnOffset.x, 0
                 );
 
             if (foodPrefabs.Length > 0)
             {
-                GameObject food = Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], spawnPosition, Quaternion.identity);
-                Destroy(food, despawnTime);
+                GameObject food = Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], 
+                    spawnPosition, Quaternion.identity);
+                activateFood[i] = food;
             }
         } 
         }

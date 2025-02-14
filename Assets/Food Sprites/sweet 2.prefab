@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5599422206807857954}
   - component: {fileID: 1635679570396746869}
   - component: {fileID: 5416571266796563154}
+  - component: {fileID: -2703237139104632178}
   m_Layer: 0
   m_Name: sweet 2
   m_TagString: Untagged
@@ -130,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 1.6}
   m_EdgeRadius: 0
+--- !u!114 &-2703237139104632178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654406353952059805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2da6f2622d4ae4cbebe75d607c5041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodPrefabs: []
+  spawnTime: 20.5
+  despawnTime: 20
+  spawnOffset: {x: 3, y: 3}
