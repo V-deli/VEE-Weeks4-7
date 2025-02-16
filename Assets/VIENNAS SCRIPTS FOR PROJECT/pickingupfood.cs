@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class pickingupfood : MonoBehaviour
 {
     public float pickupDistance = 2f;
-    public GameObject[] foodSprites;
+    //public GameObject[] foodSprites;
+    public foodspawn foodSpawner;
+    public Text scoretext;
+    private int score = 0;
     private GameObject closestfood;
 
     private void Start()
     {
         closestfood = null;
+        if (scoretext != null)
+        {
+            scoretext.text =score.ToString();
+        }
     }
 
 
@@ -19,53 +27,67 @@ public class pickingupfood : MonoBehaviour
     void Update()
     {
         FindClosestFood(); //void
-
-        if (Input.GetKeyDown(KeyCode.Space)
-            && closestfood != null)
+    }
+    public void Onfoodbuttonpressed()
+    {
+        if (closestfood != null)
         {
-            PickupFood(closestfood); //void
+         SpriteRenderer sr = closestfood.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.color = Color.green; //if that doesnt work ill do 0101
+            }
+            score = score + 1;
+            if (scoretext != null)
+            {
+                scoretext.text =score.ToString();
+            }
         }
     }
 
-        void FindClosestFood()
+         void FindClosestFood()
         {
             closestfood = null;
             float closestDistance = pickupDistance; //
 
 
-            for ( int i = 0; i < foodSprites.Length; i++ )
+            for ( int i = 0; i < foodSpawner.activateFood.Length; i++) // activatefood was from the other script
             {
-            float dx = transform.position.x - foodSprites[i].transform.position.x;
-            float dy = transform.position.y - foodSprites[i].transform.position.y;
+            GameObject food = foodSpawner.activateFood[i];
+            if (food != null)
+            {
+                float dx = transform.position.x - food.transform.position.x;
+                float dy = transform.position.y - food.transform.position.y;
 
-            float distance = Mathf.Sqrt( dx * dx + dy * dy ); //auto filled my math for me
-
-                 if ( distance < pickupDistance )
+                float d = Mathf.Sqrt(dx * dx + dy * dy); //auto filled my math for me, d for distance
+                if (d < closestDistance) //
                 {
-                    closestfood = foodSprites[i];
-                    closestDistance = distance; //
+                    closestfood = food;
+                    closestDistance = d; //
                 }
             }
+ 
+            }
         }
-        void PickupFood(GameObject food)
-        {
-        food.transform.parent = transform;
+        //void PickupFood(GameObject food)
+        //{
+        //food.transform.parent = transform;
         
-        food.transform.localPosition = new Vector2 (0f, 1f); //
+        //food.transform.localPosition = new Vector2 (0f, 1f); //
 
         //good// GameObject pickedFood = Instantiate(food, transform.position, Quaternion.identity);
         //good//pickedFood.transform.parent = transform;
         //good// pickedFood.transform.localPosition = new Vector3(); //0 0 0 
 
-        foodspawn foodScript = food.GetComponent <foodspawn>();
+        //foodspawn foodScript = food.GetComponent <foodspawn>();
 
-        if ( foodScript != null )
-        {
-            foodScript.PickUpFood(); //the error I got was a typo OML that took a while to realse
+        //if ( foodScript != null )
+        //{
+        //    foodScript.PickUpFood(); //the error I got was a typo OML that took a while to realse
 
         }
 
 
 
-    }
-}
+    
+

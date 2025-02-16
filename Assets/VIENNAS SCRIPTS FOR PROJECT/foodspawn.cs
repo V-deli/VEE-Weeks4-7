@@ -10,7 +10,8 @@ public class foodspawn : MonoBehaviour
     public Vector2 spawnOffset = new Vector2(3f, 3f);
 
     private float timer = 0f;
-    private GameObject[] activateFood = new GameObject[4];
+    public GameObject[] activateFood = new GameObject[4];
+    private Color normalColor = new Color(1f, 1f, 1f); //normal
 
 
     private void Start()
@@ -48,14 +49,20 @@ public class foodspawn : MonoBehaviour
             {
                 GameObject food = Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], 
                     spawnPosition, Quaternion.identity);
+                SpriteRenderer sr = food.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    sr.color = normalColor;
+                }
                 activateFood[i] = food;
+                Destroy(food, despawnTime);
             }
         } 
         }
-            public void PickUpFood()
-            {
-             Destroy(gameObject);
-            }
+            //public void PickUpFood()
+            //{
+            // Destroy(gameObject);
+            //}
     }
 
 // changed 2 rows of 5, to 1 row of 4 since when I distort screens width the prefabs dont look nice :(
