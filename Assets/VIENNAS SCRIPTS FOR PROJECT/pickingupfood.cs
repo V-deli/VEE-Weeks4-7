@@ -45,14 +45,14 @@ public class pickingupfood : MonoBehaviour
         }
     }
 
-         void FindClosestFood()
+    void FindClosestFood()
+    {
+        closestfood = null;
+        float closestDistance = pickupDistance; //
+
+
+        for (int i = 0; i < foodSpawner.activateFood.Length; i++) // activatefood was from the other script
         {
-            closestfood = null;
-            float closestDistance = pickupDistance; //
-
-
-            for ( int i = 0; i < foodSpawner.activateFood.Length; i++) // activatefood was from the other script
-            {
             GameObject food = foodSpawner.activateFood[i];
             if (food != null)
             {
@@ -66,24 +66,9 @@ public class pickingupfood : MonoBehaviour
                     closestDistance = d; //
                 }
             }
- 
-            }
+
         }
-        //void PickupFood(GameObject food)
-        //{
-        //food.transform.parent = transform;
-        
-        //food.transform.localPosition = new Vector2 (0f, 1f); //
-
-        //good// GameObject pickedFood = Instantiate(food, transform.position, Quaternion.identity);
-        //good//pickedFood.transform.parent = transform;
-        //good// pickedFood.transform.localPosition = new Vector3(); //0 0 0 
-
-        //foodspawn foodScript = food.GetComponent <foodspawn>();
-
-        //if ( foodScript != null )
-        //{
-        //    foodScript.PickUpFood(); //the error I got was a typo OML that took a while to realse
+    }
 
         }
 

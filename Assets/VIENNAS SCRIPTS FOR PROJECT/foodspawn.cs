@@ -59,10 +59,7 @@ public class foodspawn : MonoBehaviour
             }
         } 
         }
-            //public void PickUpFood()
-            //{
-            // Destroy(gameObject);
-            //}
+            
     }
 
 // changed 2 rows of 5, to 1 row of 4 since when I distort screens width the prefabs dont look nice :(
