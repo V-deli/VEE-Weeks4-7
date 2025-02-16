@@ -11,6 +11,7 @@ public class pickingupfood : MonoBehaviour
     public foodspawn foodSpawner;
     public TMP_Text scoretext;
     public int score = 0;
+    public AudioSource pickupfoodsound;
     private GameObject closestfood;
 
     private void Start()
@@ -42,6 +43,10 @@ public class pickingupfood : MonoBehaviour
             if (scoretext != null)
             {
                 scoretext.text = "Score:" + score.ToString() + "/10";
+            }
+            if (pickupfoodsound != null)
+            {
+                pickupfoodsound.Play();
             }
         }
     }
