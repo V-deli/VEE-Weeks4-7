@@ -279,7 +279,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 95241282}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1107599780}
+        m_TargetAssemblyTypeName: pickingupfood, Assembly-CSharp
+        m_MethodName: Onfoodbuttonpressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &95241282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +448,11 @@ MonoBehaviour:
   spawnTime: 7
   despawnTime: 6
   spawnOffset: {x: 2, y: 1}
+  activateFood:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &187264528
 Transform:
   m_ObjectHideFlags: 0
@@ -972,6 +989,7 @@ GameObject:
   - component: {fileID: 1107599777}
   - component: {fileID: 1107599776}
   - component: {fileID: 1107599775}
+  - component: {fileID: 1107599780}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1140,6 +1158,21 @@ Transform:
   - {fileID: 187264528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107599780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107599774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930818e8da0de054da6af565c46e2960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupDistance: 2
+  foodSpawner: {fileID: 187264527}
+  scoretext: {fileID: 0}
 --- !u!1 &1109653303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,17 +1794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupDistance: 2
-  foodSprites:
-  - {fileID: 1502895517118268515, guid: 5d7c2e9fc10eddd419c501d145cd0685, type: 3}
-  - {fileID: 6760622110579950384, guid: f9d59ba727a02b0498c760d810bbbdd9, type: 3}
-  - {fileID: 8483104460292671843, guid: c7cde30e754d7774d80a15e5ec057343, type: 3}
-  - {fileID: 3904934440055635150, guid: aaa3ed1ecf0918e4b950583250765516, type: 3}
-  - {fileID: 7096197577290447332, guid: 1f63be966e0ca584f92d932c2e33964c, type: 3}
-  - {fileID: 1142247581796115298, guid: ef62f3bb87eed5c4a9d23947c4138d42, type: 3}
-  - {fileID: 2005663540080491740, guid: a4a74723d7ad58a42a70d30fa22d5063, type: 3}
-  - {fileID: 1481321307284300450, guid: e9d675aa488d12e489f56f2e65251266, type: 3}
-  - {fileID: 2654406353952059805, guid: 1146d33a1f569d64fb5f98cca598049e, type: 3}
-  - {fileID: 2572479787328233378, guid: 0fecfd7197dace7458245db675ae161b, type: 3}
+  foodSpawner: {fileID: 0}
+  scoretext: {fileID: 0}
 --- !u!4 &1900946477
 Transform:
   m_ObjectHideFlags: 0
