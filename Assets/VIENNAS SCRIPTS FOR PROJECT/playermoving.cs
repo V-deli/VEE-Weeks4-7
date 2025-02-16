@@ -38,22 +38,22 @@ public class playermoving : MonoBehaviour
         Vector2 movement = new Vector2(movement.x = 0, movement.y = 0);
         
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             movement.y = 1;
             SpriteRenderer.sprite = spritesDirection[1];
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             movement.y = -1;
             SpriteRenderer.sprite = spritesDirection[0];
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             movement.x = -1;
             SpriteRenderer.sprite = spritesDirection[2];
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             movement.x = 1;
             SpriteRenderer.sprite = spritesDirection[3];
