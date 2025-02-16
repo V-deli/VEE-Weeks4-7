@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; 
 
 public class pickingupfood : MonoBehaviour
 {
     public float pickupDistance = 2f;
     //public GameObject[] foodSprites;
     public foodspawn foodSpawner;
-    public Text scoretext;
+    public TMP_Text scoretext;
     private int score = 0;
     private GameObject closestfood;
 
@@ -17,7 +18,7 @@ public class pickingupfood : MonoBehaviour
         closestfood = null;
         if (scoretext != null)
         {
-            scoretext.text =score.ToString();
+            scoretext.text = "Score:" + score.ToString() + "/10" ;
         }
     }
 
@@ -40,7 +41,7 @@ public class pickingupfood : MonoBehaviour
             score = score + 1;
             if (scoretext != null)
             {
-                scoretext.text =score.ToString();
+                scoretext.text = "Score:" + score.ToString() + "/10";
             }
         }
     }
