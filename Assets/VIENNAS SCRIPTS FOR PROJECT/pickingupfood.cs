@@ -10,7 +10,7 @@ public class pickingupfood : MonoBehaviour
     //public GameObject[] foodSprites;
     public foodspawn foodSpawner;
     public TMP_Text scoretext;
-    private int score = 0;
+    public int score = 0;
     private GameObject closestfood;
 
     private void Start()
