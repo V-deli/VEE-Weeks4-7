@@ -7,7 +7,7 @@ public class playermoving : MonoBehaviour
 {
 
     public float chaspeed = 3f; //float for the characters default speed
-    private Rigidbody2D body; //component in the inspector of the "player"
+    
     
 
     public Slider speedSlider; //this is the slider that will alter the speed of the player, when moved around on screen when the unity projct is played
@@ -18,7 +18,7 @@ public class playermoving : MonoBehaviour
 
     void Start() //once the game starts:
     {
-        body = GetComponent<Rigidbody2D>(); //this gets a hold of the Rigidbody2d componemt (component thats on the player gameobject)
+     
         if (speedSlider != null) //if the slider is not null: the speed slider is on
         { //set the speed of the slider to the speed of the character
             speedSlider.value = chaspeed;
